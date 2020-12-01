@@ -43,10 +43,10 @@ __meta__ = {
 }
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/Control"]
-margin_left = 224.266
-margin_top = 135.442
-margin_right = 264.266
-margin_bottom = 149.442
+margin_left = 1.26601
+margin_top = 2.442
+margin_right = 41.266
+margin_bottom = 31.442
 custom_fonts/font = SubResource( 1 )
 text = "0"
 align = 1
