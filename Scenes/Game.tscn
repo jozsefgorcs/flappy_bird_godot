@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Bird.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/sprites/background-day.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/PipeGenerator.gd" type="Script" id=3]
+[ext_resource path="res://Assets/candles_.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 22
+font_data = ExtResource( 4 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Bird" parent="." instance=ExtResource( 1 )]
+position = Vector2( 246.821, 266.811 )
+
+[node name="Camera2D" type="Camera2D" parent="Bird"]
+current = true
+limit_top = 0
+limit_bottom = 512
+limit_smoothed = true
+drag_margin_left = 0.22
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Bird"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Bird/ParallaxBackground"]
+motion_mirroring = Vector2( 288, 0 )
+
+[node name="Sprite" type="Sprite" parent="Bird/ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="PipeGenerator" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+margin_right = 558.0
+margin_bottom = 494.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/Control"]
+margin_left = 224.266
+margin_top = 135.442
+margin_right = 264.266
+margin_bottom = 149.442
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
